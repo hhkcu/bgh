@@ -1,3 +1,12 @@
-[{"cleanTitle": "RIBBIT (Deltarune mod)", "dlId": "1-1BtVCzEFWT5-JtU9vGhWSAKrfdsR96z", "startScript": "c2Z4CnJpeCBERUxUQVJVTkUuZXhl"}, {"cleanTitle": "Raldi's Crackhouse", "dlId": "1IKqDnpDMqGBgUqm4xXAGKO6sGWN7qhyv", "startScript": "c2Z4CnJpeCAiUmFsZGkncyBDcmFja2hvdXNlLmV4ZSI="}]
-
-
+[
+  {
+    "cleanTitle": "RIBBIT (Deltarune mod)",
+    "dlId": "1-1BtVCzEFWT5-JtU9vGhWSAKrfdsR96z",
+    "startScript": "c2Z4DQpyaXggREVMVEFSVU5FLmV4ZQ=="
+  },
+  {
+    "cleanTitle": "Raldi's Crackhouse",
+    "dlId": "1IKqDnpDMqGBgUqm4xXAGKO6sGWN7qhyv",
+    "startScript": "c2Z4DQpyaXggIlJhbGRpJ3MgQ3JhY2tob3VzZS5leGUi"
+  }
+]
