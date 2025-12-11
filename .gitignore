@@ -1,0 +1,10 @@
+
+# Interim files used to graphically insert titles via SQLite
+# The database is processed into index.json anyway, we don't need these.
+preindex.db3
+package.json
+node_modules/
+convert.mjs
+pnpm-lock.yaml
+.DS_Store
+.vscode/
