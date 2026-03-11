@@ -24,6 +24,7 @@
   {
     "cleanTitle": "Minecraft: Xbox One Edition",
     "dlId": "1VB7E1fJm9UzNsok0K2mFb7VmxXbU44UQ",
-    "startScript": "c2Z4CmhkbCAiTWluZWNyYWZ0LkNsaWVudC5leGUiICJodHRwczovL2dpdGh1Yi5jb20vc21hcnRjbWQvTWluZWNyYWZ0Q29uc29sZXMvcmVsZWFzZXMvZG93bmxvYWQvbmlnaHRseS9NaW5lY3JhZnQuQ2xpZW50LmV4ZSIKaWJveCAiRW50ZXIgdXNlcm5hbWUgZm9yIG11bHRpcGxheWVyIChkZWZhdWx0cyB0byB5b3VyIGFjY291bnQgbmFtZSk6Igp3cml0ZXRvIHVzZXJuYW1lLnR4dCAkcmVnMApyaXggIk1pbmVjcmFmdC5DbGllbnQuZXhlIg=="
+    "overrideUri": "https://github.com/smartcmd/MinecraftConsoles/releases/download/nightly/LCEWindows64.zip",
+    "startScript": "YWV4cyAyMQppYm94ICJFbnRlciB1c2VybmFtZSBmb3IgbXVsdGlwbGF5ZXIgKGRlZmF1bHRzIHRvIHlvdXIgYWNjb3VudCBuYW1lKToiCndyaXRldG8gdXNlcm5hbWUudHh0ICRyZWcwCnJpeCAiTWluZWNyYWZ0LkNsaWVudC5leGUi"
   }
 ]
