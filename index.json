@@ -1,5 +1,12 @@
 [
   {
+    "isMeta": true,
+    "minVersion": 5,
+    "cleanTitle": "Please update the launcher!",
+    "dlId": "PLSUPDATEMEKTHX",
+    "startScript": ""
+  },
+  {
     "cleanTitle": "RIBBIT (Deltarune mod)",
     "dlId": "1-1BtVCzEFWT5-JtU9vGhWSAKrfdsR96z",
     "startScript": "c2Z4DQpyaXggREVMVEFSVU5FLmV4ZQ=="
