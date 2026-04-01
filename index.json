@@ -2,28 +2,8 @@
   {
     "isMeta": true,
     "minVersion": 5,
-    "cleanTitle": "Please update the launcher!",
+    "cleanTitle": "Please update!",
     "dlId": "PLSUPDATEMEKTHX",
     "startScript": ""
   },
-  {
-    "cleanTitle": "RIBBIT (Deltarune mod)",
-    "dlId": "1-1BtVCzEFWT5-JtU9vGhWSAKrfdsR96z",
-    "startScript": "c2Z4DQpyaXggREVMVEFSVU5FLmV4ZQ=="
-  },
-  {
-    "cleanTitle": "Raldi's Crackhouse",
-    "dlId": "1IKqDnpDMqGBgUqm4xXAGKO6sGWN7qhyv",
-    "startScript": "c2Z4DQpyaXggIlJhbGRpJ3MgQ3JhY2tob3VzZS5leGUi"
-  },
-  {
-    "cleanTitle": "The Simpsons: Hit and Run",
-    "dlId": "1FcHe68O9GGPLdWt4K0wXcuJ-XGYpXZPt",
-    "startScript": "c2Z4DQpyaXggIlNpbXBzb25zLmV4ZSI="
-  },
-  {
-    "cleanTitle": "Minecraft: Xbox One Edition",
-    "dlId": "1VB7E1fJm9UzNsok0K2mFb7VmxXbU44UQ",
-    "startScript": "c2Z4Cmlib3ggIkVudGVyIHVzZXJuYW1lIGZvciBtdWx0aXBsYXllciAoZGVmYXVsdHMgdG8geW91ciBhY2NvdW50IG5hbWUpOiIKd3JpdGV0byB1c2VybmFtZS50eHQgJHJlZzAKcml4ICJNaW5lY3JhZnQuQ2xpZW50LmV4ZSI="
-  }
 ]
