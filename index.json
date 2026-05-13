@@ -1,0 +1,114 @@
+{
+	"Metadata" : {
+		"MinVersion" : 16777222,
+		"LatestVersion" : [ 1, 7, 0 ]
+	},
+	"Members" : [
+		{
+			"CleanTitle" : "Minecraft 26.1",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "KtbMrD2P"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGphdmEgPSBwYXRoSm9pbihleGRpciwgImphdmFcXGJpblxcamF2YS5leGUiKQpsb2NhbCBsYXVuY2hBcmdzID0gc3RyaW5nLmZvcm1hdCgibGF1bmNoIHNwIC0tdXNlcm5hbWUgJXMgLS1qYXZhIFwiJXNcIiAtLWdhbWUtZGlyIFwiJXNcIiIsIHVzZXJuLCBqYXZhLCAiTjpcXFJQRlxcQXBwRGF0YTEwXFxtYzI2ZGF0YSIpCmxvY2FsIHJlcyA9IHBFeGVjKHBhdGhKb2luKGV4ZGlyLCAibmNyYWZ0LmV4ZSIpLCBsYXVuY2hBcmdzLCBleGRpciwgZmFsc2UpCnByaW50X2xpbmUoc3RyaW5nLmZvcm1hdCgiJWQiLHJlcykp"
+		},
+		{
+			"CleanTitle" : "Plants Vs. Zombies",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "oIF5kbcP"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiUGxhbnRzVnNab21iaWVzLmV4ZSIpLCAiIiwgZXhkaXIsIGZhbHNlKQ=="
+		},
+		{
+			"CleanTitle" : "Hollow Knight",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "nBfEbBBU"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCm1rZGlyKCJOOlxcUlBGXFxBcHBEYXRhMTBcXEhvbGxvd0tuaWdodERhdGEiKQp3cml0ZUZpbGUocGF0aEpvaW4oZXhkaXIsICJjdXN0b21zYXZlZGlyLmNmZyIpLCAiTjpcXFJQRlxcQXBwRGF0YTEwXFxIb2xsb3dLbmlnaHREYXRhIikKcEV4ZWMocGF0aEpvaW4oZXhkaXIsICJob2xsb3dfa25pZ2h0LmV4ZSIpLCAiIiwgZXhkaXIsIGZhbHNlKQ=="
+		},
+		{
+			"CleanTitle" : "People Playground",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "r7DVbwYa"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiUGVvcGxlIFBsYXlncm91bmQuZXhlIiksICIiLCBleGRpciwgZmFsc2Up"
+		},
+		{
+			"CleanTitle" : "PaRappa The Rapper 2",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "LOxRhhv7"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAicGNzeDItcXQuZXhlIiksICItZnVsbHNjcmVlbiAtYmF0Y2ggLS0gXCJpc29zXFxQYVJhcHBhIHRoZSBSYXBwZXIgMiAoVVNBKSAoRW4sSmEpLmlzb1wiIiwgZXhkaXIsIGZhbHNlKQ=="
+		},
+		{
+			"CleanTitle" : "Counter-Strike: Source",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "v0erakFC"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGxhdW5jaFBhcmFtcyA9IHN0cmluZy5mb3JtYXQoIi1nYW1lIGNzdHJpa2UgLXN0ZWFtIC1pbnNlY3VyZSArc3ZfdGFncyBNS0hvc3QkJXMgK3N2X2xhbiAwIiwgdXNlcm4pCgpsb2NhbCBjZmdCYXNlID0gcmVhZEZpbGUocGF0aEpvaW4oZXhkaXIsICJiaW5cXHN0ZWFtX3NldHRpbmdzXFxjb25maWdzLnVzZXIuQkFTRS5pbmkiKSkKY2ZnQmFzZSA9IGNmZ0Jhc2U6Z3N1YigiJSRVU0VSTkFNRSUkIiwgdXNlcm4pCnByaW50X2xpbmUoc3RyaW5nLmZvcm1hdCgiV3JpdGUgdXNlcm4gJXMgdG8gY29uZmlnIiwgdXNlcm4pKQp3cml0ZUZpbGUocGF0aEpvaW4oZXhkaXIsICJiaW5cXHN0ZWFtX3NldHRpbmdzXFxjb25maWdzLnVzZXIuaW5pIiksIGNmZ0Jhc2UpCndyaXRlRmlsZShwYXRoSm9pbihleGRpciwgImNzdHJpa2VcXGNmZ1xcbGlzdGVuc2VydmVyLmNmZyIpLCBzdHJpbmcuZm9ybWF0KCJzdl9sYW4gMFxuaG9zdG5hbWUgXCIlcydzIFNlcnZlclwiXG5oZWFydGJlYXQiLCB1c2VybikpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAianFob3N0MzIuZXhlIiksIGxhdW5jaFBhcmFtcywgZXhkaXIsIGZhbHNlKQ=="
+		},
+		{
+			"CleanTitle" : "BattleBlock Theater",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "OIvZ13u6"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCndyaXRlRmlsZShwYXRoSm9pbihleGRpciwgInN0ZWFtX3NldHRpbmdzXFxjb25maWcudXNlci5pbmkiKSwgc3RyaW5nLmZvcm1hdChbPT1bClt1c2VyOjpnZW5lcmFsXQphY2NvdW50X25hbWU9JXMKaXBfY291bnRyeT1HQl09PV0sIHVzZXJuKSkKcEV4ZWMocGF0aEpvaW4oZXhkaXIsICJCYXR0bGVCbG9ja1RoZWF0ZXIuZXhlIiksICIiLCBleGRpciwgZmFsc2Up"
+		},
+		{
+			"CleanTitle" : "Grand Theft Auto: San Andreas",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "haXCfPjB"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGd0YURpciA9IHBhdGhKb2luKGV4ZGlyLCAiR1RBIFNhbiBBbmRyZWFzIikKaWYgbm90IGRpckV4aXN0cyhndGFEaXIpIHRoZW4KCXByaW50X2xpbmUoIk5vdCBpbnN0YWxsZWQsIGluc3RhbGxpbmciKQoJbG9jYWwgcnpEaXIgPSBwYXRoSm9pbihleGRpciwgIkdUQVNBLnJ6IikKCXBFeGVjKHBhdGhKb2luKGV4ZGlyLCAicnouZXhlIiksICgieCAtbyAlcyAtciAteSBcIiVzXCIgKiIpOmZvcm1hdChleGRpciwgcnpEaXIpLCBleGRpciwgdHJ1ZSkKZW5kCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR1RBIFNhbiBBbmRyZWFzXFxndGFfc2EuZXhlIiksICIiLCBndGFEaXIsIGZhbHNlKQo="
+		}
+	],
+	"ErrorMessage" : null,
+	"ErrorDetail" : null
+}
