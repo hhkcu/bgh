@@ -107,6 +107,19 @@
 				}
 			],
 			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGd0YURpciA9IHBhdGhKb2luKGV4ZGlyLCAiR1RBIFNhbiBBbmRyZWFzIikKaWYgbm90IGRpckV4aXN0cyhndGFEaXIpIHRoZW4KCXByaW50X2xpbmUoIk5vdCBpbnN0YWxsZWQsIGluc3RhbGxpbmciKQoJbG9jYWwgcnpEaXIgPSBwYXRoSm9pbihleGRpciwgIkdUQVNBLnJ6IikKCXBFeGVjKHBhdGhKb2luKGV4ZGlyLCAicnouZXhlIiksICgieCAtbyAlcyAtciAteSBcIiVzXCIgKiIpOmZvcm1hdChleGRpciwgcnpEaXIpLCBleGRpciwgdHJ1ZSkKZW5kCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR1RBIFNhbiBBbmRyZWFzXFxndGFfc2EuZXhlIiksICIiLCBndGFEaXIsIGZhbHNlKQo="
+		},
+		{
+			"CleanTitle" : "Geometry Dash",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "xpTsjNPZ"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR2VvbWV0cnlEYXNoLmV4ZSIpLCAiIiwgZXhkaXIsIGZhbHNlKQ=="
 		}
 	],
 	"ErrorMessage" : null,
