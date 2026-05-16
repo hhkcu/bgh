@@ -120,6 +120,19 @@
 				}
 			],
 			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR2VvbWV0cnlEYXNoLmV4ZSIpLCAiIiwgZXhkaXIsIGZhbHNlKQ=="
+		},
+		{
+			"CleanTitle" : "Just Cause 2",
+			"IsDummy" : false,
+			"Archives" : [
+				{
+					"ArchiveType" : "7z",
+					"Source" : 2,
+					"DDLUri" : "",
+					"RepoArchiveName" : "7xZFy3nR"
+				}
+			],
+			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGFyY0ZpbGVzID0gcGF0aEpvaW4oZXhkaXIsICJhcmNoaXZlc193aW4zMiIpCmlmIG5vdCBmaWxlRXhpc3RzKHBhdGhKb2luKGFyY0ZpbGVzLCAicGMwLnRhYiIpKSB0aGVuCglwcmludF9saW5lKCJOb3QgaW5zdGFsbGVkLCBpbnN0YWxsaW5nIikKCWxvY2FsIGZpbGVzVG9JbnN0YWxsID0geyJwYzAudGFyLnpzdCIsInBjMS50YXIuenN0IiwicGMyLnRhci56c3QiLCJwYzMudGFyLnpzdCJ9Cglmb3IgaSx2IGluIHBhaXJzKGZpbGVzVG9JbnN0YWxsKSBkbwoJCXByaW50X2xpbmUoKCJQcm9jZXNzaW5nICVzIik6Zm9ybWF0KHYpKQoJCXBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiSkMyUmVwYWNrLmV4ZSIpLCAoIlwiJXNcIiAtbyBcIiVzXCIgLXYiKTpmb3JtYXQocGF0aEpvaW4oYXJjRmlsZXMsIHYpLCBhcmNGaWxlcyksIGV4ZGlyLCB0cnVlKQoJZW5kCmVuZApwRXhlYyhwYXRoSm9pbihleGRpciwgIkp1c3RDYXVzZTIuZXhlIiksICIiLCBleGRpciwgZmFsc2Up"
 		}
 	],
 	"ErrorMessage" : null,
