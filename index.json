@@ -1,7 +1,7 @@
 {
 	"Metadata" : {
 		"MinVersion" : 16777222,
-		"LatestVersion" : [ 1, 9, 0 ]
+		"LatestVersion" : [ 1, 9, 1 ]
 	},
 	"Members" : [
 		{
@@ -133,7 +133,13 @@
 				}
 			],
 			"LoaderScript64" : "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCmxvY2FsIGFyY0ZpbGVzID0gcGF0aEpvaW4oZXhkaXIsICJhcmNoaXZlc193aW4zMiIpCgppZiBub3QgZmlsZUV4aXN0cyhwYXRoSm9pbihhcmNGaWxlcywgInBjMC50YWIiKSkgdGhlbgogICAgcHJpbnRfbGluZSgiTm90IGluc3RhbGxlZCwgaW5zdGFsbGluZyIpCiAgICBsb2NhbCBmaWxlc1RvSW5zdGFsbCA9IHsicGMwLnRhci56c3QiLCJwYzEudGFyLnpzdCIsInBjMi50YXIuenN0IiwicGMzLnRhci56c3QifQoKICAgIGZvciBpLHYgaW4gcGFpcnMoZmlsZXNUb0luc3RhbGwpIGRvCiAgICAgICAgcHJpbnRfbGluZSgoIlByb2Nlc3NpbmcgJXMiKTpmb3JtYXQodikpCiAgICAgICAgcEV4ZWMocGF0aEpvaW4oZXhkaXIsICJKQzJSZXBhY2suZXhlIiksICgiXCIlc1wiIC1vIFwiJXNcIiAtdiIpOmZvcm1hdChwYXRoSm9pbihhcmNGaWxlcywgdiksIGFyY0ZpbGVzKSwgZXhkaXIsIHRydWUpCiAgICBlbmQKCiAgICBzZXRDYWNoZVNvdXJjZShleGRpcikKICAgIGNhY2hlRXhjbHVkZSgiYXJjaGl2ZXNfd2luMzIvKi50YXIuenN0IikKZW5kCgpwRXhlYyhwYXRoSm9pbihleGRpciwgIkp1c3RDYXVzZTIuZXhlIiksICIiLCBleGRpciwgZmFsc2Up"
-		}
+		}, {
+			"CleanTitle": "Minecraft: Story Mode (S1)",
+			"IsDummy": false,
+			"Archives": [
+{"ArchiveType":"7z","Source":2,"DDLUri":"","RepoArchiveName":"z1yBurB4"}
+			],
+			"LoaderScript64": "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR2FtZUFwcC5leGUiKSwgIiIsIGV4ZGlyLCBmYWxzZSk="
 	],
 	"ErrorMessage" : null,
 	"ErrorDetail" : null
