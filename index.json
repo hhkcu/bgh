@@ -139,7 +139,7 @@
 			"Archives": [
 {"ArchiveType":"7z","Source":2,"DDLUri":"","RepoArchiveName":"z1yBurB4"}
 			],
-			"LoaderScript64": "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR2FtZUFwcC5leGUiKSwgIiIsIGV4ZGlyLCBmYWxzZSk="
+			"LoaderScript64": "bG9jYWwgZXhkaXIgPSBleHRyYWN0R2FtZShuaWwpCnBFeGVjKHBhdGhKb2luKGV4ZGlyLCAiR2FtZUFwcC5leGUiKSwgIiIsIGV4ZGlyLCBmYWxzZSk="}
 	],
 	"ErrorMessage" : null,
 	"ErrorDetail" : null
