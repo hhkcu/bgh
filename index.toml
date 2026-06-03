@@ -1,0 +1,131 @@
+[metadata]
+latest_version = [1, 10, 0]
+
+[[games]]
+title = "Minecraft 26.1"
+repo = "KtbMrD2P"
+script_inline = '''
+local exdir = extractGame(nil)
+local java = pathJoin(exdir, "java\\bin\\java.exe")
+local launchArgs = string.format("launch sp --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
+local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
+print_line(string.format("%d", res))
+'''
+
+[[games]]
+title = "Plants Vs. Zombies"
+repo = "oIF5kbcP"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "PlantsVsZombies.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Hollow Knight"
+repo = "nBfEbBBU"
+script_inline = '''
+local exdir = extractGame(nil)
+mkdir("N:\\RPF\\AppData10\\HollowKnightData")
+writeFile(pathJoin(exdir, "customsavedir.cfg"), "N:\\RPF\\AppData10\\HollowKnightData")
+pExec(pathJoin(exdir, "hollow_knight.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "People Playground"
+repo = "r7DVbwYa"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "People Playground.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "PaRappa The Rapper 2"
+repo = "LOxRhhv7"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "pcsx2-qt.exe"), "-fullscreen -batch -- \"isos\\PaRappa the Rapper 2 (USA) (En,Ja).iso\"", exdir, false)
+'''
+
+[[games]]
+title = "Counter-Strike: Source"
+repo = "v0erakFC"
+script_inline = '''
+local exdir = extractGame(nil)
+local launchParams = string.format("-game cstrike -steam -insecure +sv_tags MKHost$%s +sv_lan 1", usern)
+
+local cfgBase = readFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.BASE.ini"))
+cfgBase = cfgBase:gsub("%$USERNAME%$", usern)
+print_line(string.format("Write usern %s to config", usern))
+writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), cfgBase)
+writeFile(pathJoin(exdir, "cstrike\\cfg\\listenserver.cfg"), string.format("sv_lan 0\nhostname \"%s's Server\"\nheartbeat", usern))
+pExec(pathJoin(exdir, "jqhost32.exe"), launchParams, exdir, false)
+'''
+
+[[games]]
+title = "BattleBlock Theater"
+repo = "OIvZ13u6"
+script_inline = '''
+local exdir = extractGame(nil)
+writeFile(pathJoin(exdir, "steam_settings\\config.user.ini"), string.format([==[
+[user::general]
+account_name=%s
+ip_country=GB]==], usern))
+pExec(pathJoin(exdir, "BattleBlockTheater.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Grand Theft Auto: San Andreas"
+repo = "haXCfPjB"
+script_inline = '''
+local exdir = extractGame(nil)
+local gtaDir = pathJoin(exdir, "GTA San Andreas")
+
+if not dirExists(gtaDir) then
+    print_line("Not installed, installing")
+    local rzDir = pathJoin(exdir, "GTASA.rz")
+    pExec(pathJoin(exdir, "rz.exe"), ("x -o %s -r -y \"%s\" *"):format(exdir, rzDir), exdir, true)
+    setCacheSource(exdir)
+    cacheExclude("GTASA.rz")
+end
+
+pExec(pathJoin(exdir, "GTA San Andreas\\gta_sa.exe"), "", gtaDir, false)
+'''
+
+[[games]]
+title = "Geometry Dash"
+repo = "xpTsjNPZ"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "GeometryDash.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Just Cause 2"
+repo = "7xZFy3nR"
+script_inline = '''
+local exdir = extractGame(nil)
+local arcFiles = pathJoin(exdir, "archives_win32")
+
+if not fileExists(pathJoin(arcFiles, "pc0.tab")) then
+    print_line("Not installed, installing")
+    local filesToInstall = {"pc0.tar.zst", "pc1.tar.zst", "pc2.tar.zst", "pc3.tar.zst"}
+
+    for i, v in pairs(filesToInstall) do
+        print_line(("Processing %s"):format(v))
+        pExec(pathJoin(exdir, "JC2Repack.exe"), ("\"%s\" -o \"%s\" -v"):format(pathJoin(arcFiles, v), arcFiles), exdir, true)
+    end
+
+    setCacheSource(exdir)
+    cacheExclude("archives_win32/*.tar.zst")
+end
+
+pExec(pathJoin(exdir, "JustCause2.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Minecraft: Story Mode (S1)"
+repo = "z1yBurB4"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
+'''
