@@ -131,7 +131,7 @@ local marker = pathJoin(exdir, ".dxvk-applied")
 
 if not fileExists(marker) then
     local dxvk = downloadFileAs(
-        "https://github.com/hhkcu/bgh/releases/download/supplementary/x32.7z",
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/d3dx9_43.7z",
         exdir,
         "dxvk.7z"
     )
