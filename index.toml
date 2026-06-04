@@ -127,5 +127,31 @@ title = "Minecraft: Story Mode (S1)"
 repo = "z1yBurB4"
 script_inline = '''
 local exdir = extractGame(nil)
+local marker = pathJoin(exdir, ".dxvk-applied")
+
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/x32.7z",
+        exdir,
+        "dxvk.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" then
+        msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, exdir, nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" then
+            msgbox_error(extracted, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+            writeFile(marker, "ok")
+
+            setCacheSource(exdir)
+            cacheExclude("dxvk.7z")
+        end
+    end
+end
+
 pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
 '''
