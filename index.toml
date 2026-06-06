@@ -155,3 +155,11 @@ end
 
 pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
 '''
+
+[[games]]
+title = "Among Us"
+repo = "WA1yAkeh"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
+'''
