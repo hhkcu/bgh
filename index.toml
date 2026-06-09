@@ -17,6 +17,50 @@ title = "Plants Vs. Zombies"
 repo = "oIF5kbcP"
 script_inline = '''
 local exdir = extractGame(nil)
+mkdir("N:\\PlantsVsZombies_userdata\\3590\\remote")
+local marker = pathJoin(exdir, ".patched")
+
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/steam_api_x32.7z",
+        exdir,
+        "steam.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" then
+        msgbox_error("Failed to download Steam API:\n"..dxvk, "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, exdir, nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" then
+            msgbox_error(extracted, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+            writeFile(marker, "ok")
+
+            setCacheSource(exdir)
+            cacheExclude("steam.7z")
+        end
+    end
+end
+local settingspath = pathJoin(exdir, "steam_settings")
+mkdir(settingspath)
+writeFile(pathJoin(settingspath, "steam_interfaces.txt"), [[STEAMAPPS_INTERFACE_VERSION003
+SteamClient009
+SteamFriends005
+SteamGameServerStats001
+SteamGameServer010
+SteamMatchMakingServers002
+SteamMatchMaking008
+SteamNetworking003
+STEAMREMOTESTORAGE_INTERFACE_VERSION002
+SteamUser013
+STEAMUSERSTATS_INTERFACE_VERSION007
+SteamUtils005
+SteamMasterServerUpdater001
+]])
+writeFile(pathJoin(settingspath, "steam_appid.txt"), "3590")
+writeFile(pathJoin(settingspath, "configs.user.ini"), "[user::general]\naccount_name=nomatter\n[user::saves]\nlocal_save_path=N:\\PlantsVsZombies_userdata")
 pExec(pathJoin(exdir, "PlantsVsZombies.exe"), "", exdir, false)
 '''
 
