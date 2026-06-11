@@ -1,5 +1,5 @@
 [metadata]
-latest_version = [1, 11, 0]
+latest_version = [1, 12, 0]
 
 [[games]]
 title = "Minecraft 26.1"
@@ -161,6 +161,18 @@ if not fileExists(pathJoin(arcFiles, "pc0.tab")) then
 
     setCacheSource(exdir)
     cacheExclude("archives_win32/*.tar.zst")
+end
+local dxgiMarker = pathJoin(exdir, ".dxgipatch")
+if not fileExists(dxgiMarker) then
+	print_line("Installing process memory patch...")
+	local dxgi = downloadFileAs(
+		"https://github.com/hhkcu/bgh/releases/download/supplementary/dxgipatch.dll",
+		exdir,
+		"dxgi.dll"
+	)
+	if dxgi:sub(1,1) ~= "#" then
+		writeFile(dxgiMarker, "ok")
+	end
 end
 
 pExec(pathJoin(exdir, "JustCause2.exe"), "", exdir, false)
