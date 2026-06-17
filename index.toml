@@ -213,8 +213,16 @@ pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
 '''
 
 [[games]]
-title = "Among Us"
+title = "Among Us (2020)"
 repo = "WA1yAkeh"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Among Us (latest)"
+repo = "8yi2IObl"
 script_inline = '''
 local exdir = extractGame(nil)
 pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
