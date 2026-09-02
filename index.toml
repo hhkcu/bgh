@@ -38,8 +38,6 @@ if not fileExists(marker) then
             deleteFile(dxvk)
             writeFile(marker, "ok")
 
-            setCacheSource(exdir)
-            cacheExclude("steam.7z")
         end
     end
 end
@@ -110,6 +108,34 @@ title = "Counter-Strike: Global Offensive"
 repo = "csgo"
 script_inline = '''
 local exdir = extractGame(nil)
+local marker = pathJoin(exdir, ".dxvk-applied")
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/d3dx9_43.7z",
+        exdir,
+        "dxvk.7z"
+    )
+	local dxvk2 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/x32.7z",
+        exdir,
+        "dxvk2.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" then
+        msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" then
+            msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+			deleteFile(dxvk2)
+            writeFile(marker, "ok")
+        end
+    end
+end
 local base = readFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"))
 writeFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"), base:gsub("PersonaName = AccountName", "PersonaName = "..usern))
 pExec(pathJoin(exdir, "bin\\funniloader.exe"), "", pathJoin(exdir,"bin"), false)
@@ -138,8 +164,6 @@ if not dirExists(gtaDir) then
     print_line("Not installed, installing")
     local rzDir = pathJoin(exdir, "GTASA.rz")
     pExec(pathJoin(exdir, "rz.exe"), ("x -o %s -r -y \"%s\" *"):format(exdir, rzDir), exdir, true)
-    setCacheSource(exdir)
-    cacheExclude("GTASA.rz")
 end
 
 pExec(pathJoin(exdir, "GTA San Andreas\\gta_sa.exe"), "", gtaDir, false)
@@ -168,9 +192,6 @@ if not fileExists(pathJoin(arcFiles, "pc0.tab")) then
         print_line(("Processing %s"):format(v))
         pExec(pathJoin(exdir, "JC2Repack.exe"), ("\"%s\" -o \"%s\" -v"):format(pathJoin(arcFiles, v), arcFiles), exdir, true)
     end
-
-    setCacheSource(exdir)
-    cacheExclude("archives_win32/*.tar.zst")
 end
 local dxgiMarker = pathJoin(exdir, ".dxgipatch")
 if not fileExists(dxgiMarker) then
@@ -212,9 +233,6 @@ if not fileExists(marker) then
         else
             deleteFile(dxvk)
             writeFile(marker, "ok")
-
-            setCacheSource(exdir)
-            cacheExclude("dxvk.7z")
         end
     end
 end
