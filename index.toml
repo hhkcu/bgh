@@ -106,6 +106,16 @@ pExec(pathJoin(exdir, "jqhost32.exe"), launchParams, exdir, false)
 '''
 
 [[games]]
+title = "Counter-Strike: Global Offensive"
+repo = "csgo"
+script_inline = '''
+local exdir = extractGame(nil)
+local base = readFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"))
+writeFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"), base:gsub("PersonaName = AccountName", "PersonaName = "..usern))
+pExec(pathJoin(exdir, "bin\\funniloader.exe"), "", pathJoin(exdir,"bin"), false)
+'''
+
+[[games]]
 title = "BattleBlock Theater"
 repo = "OIvZ13u6"
 script_inline = '''
