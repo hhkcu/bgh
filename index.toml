@@ -2,12 +2,12 @@
 latest_version = [1, 13, 0]
 
 [[games]]
-title = "Minecraft 26.1"
-repo = "KtbMrD2P"
+title = "Minecraft 26.2"
+repo = "RfXhs11N"
 script_inline = '''
 local exdir = extractGame(nil)
 local java = pathJoin(exdir, "java\\bin\\java.exe")
-local launchArgs = string.format("launch sp --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
+local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
 local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
 print_line(string.format("%d", res))
 '''
