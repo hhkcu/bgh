@@ -120,25 +120,35 @@ if not fileExists(marker) then
         exdir,
         "dxvk2.7z"
     )
+	local dxvk3 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/steam_api_x32.7z",
+        exdir,
+        "steam.7z"
+    )
 
-    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" then
+    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" or dxvk3:sub(1, 7) == "#Error:" then
         msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
     else
         local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted3 = extractArchiveTyped(dxvk3, pathJoin(exdir, "bin"), nil, "7z")
 
-        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" then
+        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" then
             msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
         else
             deleteFile(dxvk)
 			deleteFile(dxvk2)
+			deleteFile(dxvk3)
             writeFile(marker, "ok")
         end
     end
 end
-local base = readFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"))
-writeFile(pathJoin(exdir,"bin\\SmartSteamEmu.ini"), base:gsub("PersonaName = AccountName", "PersonaName = "..usern))
-pExec(pathJoin(exdir, "bin\\funniloader.exe"), "", pathJoin(exdir,"bin"), false)
+mkdir(pathJoin(exdir, "bin\\steam_settings"))
+writeFile(pathJoin(exdir, "bin\\steam_settings\\config.user.ini"), string.format([==[
+[user::general]
+account_name=%s
+ip_country=GB]==], usern))
+pExec(pathJoin(exdir, "csgo.exe"), "-steam", exdir, false)
 '''
 
 [[games]]
