@@ -144,7 +144,7 @@ if not fileExists(marker) then
     end
 end
 mkdir(pathJoin(exdir, "bin\\steam_settings"))
-writeFile(pathJoin(exdir, "bin\\steam_settings\\config.user.ini"), string.format([==[
+writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), string.format([==[
 [user::general]
 account_name=%s
 ip_country=GB]==], usern))
