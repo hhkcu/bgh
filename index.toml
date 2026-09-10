@@ -125,20 +125,27 @@ if not fileExists(marker) then
         exdir,
         "steam.7z"
     )
+	local dxvk4 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/gc.7z",
+        exdir,
+        "econ.7z"
+    )
 
-    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" or dxvk3:sub(1, 7) == "#Error:" then
+    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" or dxvk3:sub(1, 7) == "#Error:" or dxvk4:sub(1, 7) == "#Error:" then
         msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
     else
         local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted3 = extractArchiveTyped(dxvk3, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted4 = extractArchiveTyped(dxvk4, pathJoin(exdir), nil, "7z")
 
-        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" then
+        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" or extracted4:sub(1, 7) == "#Error:" then
             msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
         else
             deleteFile(dxvk)
 			deleteFile(dxvk2)
 			deleteFile(dxvk3)
+			deleteFile(dxvk4)
             writeFile(marker, "ok")
         end
     end
