@@ -137,7 +137,7 @@ if not fileExists(marker) then
         local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted3 = extractArchiveTyped(dxvk3, pathJoin(exdir, "bin"), nil, "7z")
-		local extracted4 = extractArchiveTyped(dxvk4, pathJoin(exdir), nil, "7z")
+		local extracted4 = "aaaaaaa";--extractArchiveTyped(dxvk4, pathJoin(exdir), nil, "7z")
 
         if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" or extracted4:sub(1, 7) == "#Error:" then
             msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
