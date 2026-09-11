@@ -155,6 +155,10 @@ writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), string.forma
 [user::general]
 account_name=%s
 ip_country=GB]==], usern))
+writeFile(pathJoin(exdir, "csgo\\cfg\\listenserver.cfg"), [==[
+sv_pure 1
+sv_lan 1
+]==])
 pExec(pathJoin(exdir, "csgo.exe"), "-steam", exdir, false)
 '''
 
