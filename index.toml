@@ -7,14 +7,6 @@ repo = "RfXhs11N"
 script_inline = '''
 local exdir = extractGame(nil)
 local java = pathJoin(exdir, "java\\bin\\java.exe")
-local sen = pathJoin("N:\\RPF\\AppData10\\mc26data", ".Upgrade")
-	if not fileExists(sen) then
-		pExec("explorer.exe", "N:\\RPF\\AppData10\\mc26data")
-		msgbox("Please make sure to backup your saves folder, otherwise all of your worlds will be erased by the upgrade process.\nClick OK once you have done this.")
-		deleteDir("N:\\RPF\\AppData10\\mc26data", true)
-		mkdir("N:\\RPF\\AppData10\\mc26data")
-		writeFile(sen, "true")
-	end
 local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
 local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
 print_line(string.format("%d", res))
