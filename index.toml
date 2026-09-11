@@ -7,11 +7,7 @@ repo = "RfXhs11N"
 script_inline = '''
 local exdir = extractGame(nil)
 local java = pathJoin(exdir, "java\\bin\\java.exe")
-local upgradeSentinels = {".upd.26.2"}
-local nametable = {[".upd.26.2"] = "26.1 -> 26.2"}
--- Delete old data folder if sentinel is not applied
-for _, sentinel in ipairs(upgradeSentinels) do
-	local sen = pathJoin("N:\\RPF\\AppData10\\mc26data", sentinel)
+local sen = pathJoin("N:\\RPF\\AppData10\\mc26data", ".Upgrade")
 	if not fileExists(sen) then
 		pExec("explorer.exe", "N:\\RPF\\AppData10\\mc26data")
 		msgbox("Please make sure to backup your saves folder, otherwise all of your worlds will be erased by the upgrade process.\nClick OK once you have done this.")
@@ -19,7 +15,6 @@ for _, sentinel in ipairs(upgradeSentinels) do
 		mkdir("N:\\RPF\\AppData10\\mc26data")
 		writeFile(sen, "true")
 	end
-end
 local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
 local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
 print_line(string.format("%d", res))
