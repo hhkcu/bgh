@@ -7,6 +7,19 @@ repo = "RfXhs11N"
 script_inline = '''
 local exdir = extractGame(nil)
 local java = pathJoin(exdir, "java\\bin\\java.exe")
+local upgradeSentinels = {".upd.26.2"}
+local nametable = {[".upd.26.2"] = "26.1 -> 26.2"}
+-- Delete old data folder if sentinel is not applied
+for _, sentinel in ipairs(upgradeSentinels) do
+	local sen = pathJoin("N:\\RPF\\AppData10\\mc26data", sentinel)
+	if not fileExists(sen) then
+		pExec("explorer.exe", "N:\\RPF\\AppData10\\mc26data")
+		msgbox("Please make sure to backup your saves folder, otherwise all of your worlds will be erased by the upgrade process.\nClick OK once you have done this.")
+		deleteDir("N:\\RPF\\AppData10\\mc26data", true)
+		mkdir("N:\\RPF\\AppData10\\mc26data")
+		writeFile(sen, "true")
+	end
+end
 local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
 local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
 print_line(string.format("%d", res))
@@ -126,7 +139,7 @@ if not fileExists(marker) then
         "steam.7z"
     )
 	local dxvk4 = downloadFileAs(
-        "https://github.com/hhkcu/bgh/releases/download/supplementary/gc.7z",
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/gcpatch.7z",
         exdir,
         "econ.7z"
     )
@@ -137,7 +150,7 @@ if not fileExists(marker) then
         local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
 		local extracted3 = extractArchiveTyped(dxvk3, pathJoin(exdir, "bin"), nil, "7z")
-		local extracted4 = "aaaaaaa";--extractArchiveTyped(dxvk4, pathJoin(exdir), nil, "7z")
+		local extracted4 = extractArchiveTyped(dxvk4, exdir, nil, "7z")
 
         if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" or extracted4:sub(1, 7) == "#Error:" then
             msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
