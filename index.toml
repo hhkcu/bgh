@@ -81,29 +81,6 @@ pExec(pathJoin(exdir, "People Playground.exe"), "", exdir, false)
 '''
 
 [[games]]
-title = "PaRappa The Rapper 2"
-repo = "LOxRhhv7"
-script_inline = '''
-local exdir = extractGame(nil)
-pExec(pathJoin(exdir, "pcsx2-qt.exe"), "-fullscreen -batch -- \"isos\\PaRappa the Rapper 2 (USA) (En,Ja).iso\"", exdir, false)
-'''
-
-[[games]]
-title = "Counter-Strike: Source"
-repo = "v0erakFC"
-script_inline = '''
-local exdir = extractGame(nil)
-local launchParams = string.format("-game cstrike -steam -insecure +sv_tags MKHost$%s +sv_lan 1", usern)
-
-local cfgBase = readFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.BASE.ini"))
-cfgBase = cfgBase:gsub("%$USERNAME%$", usern)
-print_line(string.format("Write usern %s to config", usern))
-writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), cfgBase)
-writeFile(pathJoin(exdir, "cstrike\\cfg\\listenserver.cfg"), string.format("sv_lan 0\nhostname \"%s's Server\"\nheartbeat", usern))
-pExec(pathJoin(exdir, "jqhost32.exe"), launchParams, exdir, false)
-'''
-
-[[games]]
 title = "Counter-Strike: Global Offensive"
 repo = "csgo"
 script_inline = '''
@@ -156,9 +133,19 @@ writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), string.forma
 account_name=%s
 ip_country=GB]==], usern))
 writeFile(pathJoin(exdir, "csgo\\cfg\\listenserver.cfg"), [==[
-sv_pure 1
+sv_pure 0
 sv_lan 1
 ]==])
+mkdir("N:\\RPF\\AppData10\\gc")
+if not fileExists("N:\\RPF\\AppData10\\gc\\init") then
+	local filesToCopy = {"inventory.txt", "price_sheet.txt", "unusual_loot_lists.txt"}
+	for _, v in pairs(filesToCopy) do
+		local pth = pathJoin(pathJoin(exdir, "csgo_gc"), v)
+		copyFile(pth, pathJoin("N:\\RPF\\AppData10\\gc", v), true)
+	end
+	writeFile("N:\\RPF\\AppData10\\gc\\init", "good")
+end
+setEnv("CSGO_GC_DATA_DIR", "N:\\RPF\\AppData10\\gc")
 pExec(pathJoin(exdir, "csgo.exe"), "-steam", exdir, false)
 '''
 
@@ -262,16 +249,8 @@ pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
 '''
 
 [[games]]
-title = "Among Us (2020)"
+title = "Among Us"
 repo = "WA1yAkeh"
-script_inline = '''
-local exdir = extractGame(nil)
-pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
-'''
-
-[[games]]
-title = "Among Us (latest)"
-repo = "8yi2IObl"
 script_inline = '''
 local exdir = extractGame(nil)
 pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
