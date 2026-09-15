@@ -5,9 +5,35 @@ latest_version = [1, 13, 0]
 title = "Minecraft 26.2"
 repo = "RfXhs11N"
 script_inline = '''
+local gameDir = "N:\\RPF\\AppData10\\mc26data"
+local verFile = "N:\\RPF\\AppData10\\mc26data_version.txt"
+local currentVer = "26.2"
+
+-- Ensure the parent directory exists
+local parentDir = "N:\\RPF\\AppData10"
+if not dirExists(parentDir) then
+    mkdir(parentDir)
+end
+
+-- Migration check: if the game dir exists from an older version, wipe it
+if dirExists(gameDir) then
+    local cachedVer = ""
+    if fileExists(verFile) then
+        cachedVer = readFile(verFile)
+    end
+
+    if cachedVer ~= currentVer then
+        print_line(string.format("Version mismatch (cached: '%s', target: '%s'). Deleting cached game directory...", cachedVer, currentVer))
+        deleteDir(gameDir, true)
+    end
+end
+
+-- Update version stamp
+writeFile(verFile, currentVer)
+
 local exdir = extractGame(nil)
 local java = pathJoin(exdir, "java\\bin\\java.exe")
-local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, "N:\\RPF\\AppData10\\mc26data")
+local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, gameDir)
 local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
 print_line(string.format("%d", res))
 '''
