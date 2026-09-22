@@ -1,0 +1,309 @@
+[metadata]
+latest_version = [2, 2, 3]
+
+[[games]]
+title = "Minecraft 26.2"
+repo = "RfXhs11N"
+script_inline = '''
+local gameDir = "N:\\RPF\\AppData10\\mc26data"
+local verFile = "N:\\RPF\\AppData10\\mc26data_version.txt"
+local currentVer = "26.2"
+
+-- Ensure the parent directory exists
+local parentDir = "N:\\RPF\\AppData10"
+if not dirExists(parentDir) then
+    mkdir(parentDir)
+end
+
+-- Migration check: if the game dir exists from an older version, wipe it
+if dirExists(gameDir) then
+    local cachedVer = ""
+    if fileExists(verFile) then
+        cachedVer = readFile(verFile)
+    end
+
+    if cachedVer ~= currentVer then
+        print_line(string.format("Version mismatch (cached: '%s', target: '%s'). Deleting cached game directory...", cachedVer, currentVer))
+        deleteDir(gameDir, true)
+    end
+end
+
+-- Update version stamp
+writeFile(verFile, currentVer)
+
+local exdir = extractGame(nil)
+local java = pathJoin(exdir, "java\\bin\\java.exe")
+local launchArgs = string.format("launch wallahi --username %s --java \"%s\" --game-dir \"%s\"", usern, java, gameDir)
+local res = pExec(pathJoin(exdir, "ncraft.exe"), launchArgs, exdir, false)
+print_line(string.format("%d", res))
+'''
+
+[[games]]
+title = "Plants Vs. Zombies"
+repo = "oIF5kbcP"
+script_inline = '''
+local exdir = extractGame(nil)
+mkdir("N:\\PlantsVsZombies_userdata\\3590\\remote")
+local marker = pathJoin(exdir, ".patched")
+
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/steam_api_x32.7z",
+        exdir,
+        "steam.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" then
+        msgbox_error("Failed to download Steam API:\n"..dxvk, "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, exdir, nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" then
+            msgbox_error(extracted, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+            writeFile(marker, "ok")
+
+        end
+    end
+end
+local settingspath = pathJoin(exdir, "steam_settings")
+mkdir(settingspath)
+writeFile(pathJoin(settingspath, "steam_interfaces.txt"), [[STEAMAPPS_INTERFACE_VERSION003
+SteamClient009
+SteamFriends005
+SteamGameServerStats001
+SteamGameServer010
+SteamMatchMakingServers002
+SteamMatchMaking008
+SteamNetworking003
+STEAMREMOTESTORAGE_INTERFACE_VERSION002
+SteamUser013
+STEAMUSERSTATS_INTERFACE_VERSION007
+SteamUtils005
+SteamMasterServerUpdater001
+]])
+writeFile(pathJoin(settingspath, "steam_appid.txt"), "3590")
+writeFile(pathJoin(settingspath, "configs.user.ini"), "[user::general]\naccount_name=nomatter\n[user::saves]\nlocal_save_path=N:\\PlantsVsZombies_userdata")
+pExec(pathJoin(exdir, "PlantsVsZombies.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Hollow Knight"
+repo = "nBfEbBBU"
+script_inline = '''
+local exdir = extractGame(nil)
+mkdir("N:\\RPF\\AppData10\\HollowKnightData")
+writeFile(pathJoin(exdir, "customsavedir.cfg"), "N:\\RPF\\AppData10\\HollowKnightData")
+pExec(pathJoin(exdir, "hollow_knight.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "People Playground"
+repo = "r7DVbwYa"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "People Playground.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Counter-Strike: Global Offensive"
+repo = "csgo"
+script_inline = '''
+local exdir = extractGame(nil)
+local marker = pathJoin(exdir, ".dxvk-applied")
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/d3dx9_43.7z",
+        exdir,
+        "dxvk.7z"
+    )
+	local dxvk2 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/x32.7z",
+        exdir,
+        "dxvk2.7z"
+    )
+	local dxvk3 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/steam_api_x32.7z",
+        exdir,
+        "steam.7z"
+    )
+	local dxvk4 = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/gcpatch.7z",
+        exdir,
+        "econ.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" or dxvk2:sub(1, 7) == "#Error:" or dxvk3:sub(1, 7) == "#Error:" or dxvk4:sub(1, 7) == "#Error:" then
+        msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted2 = extractArchiveTyped(dxvk2, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted3 = extractArchiveTyped(dxvk3, pathJoin(exdir, "bin"), nil, "7z")
+		local extracted4 = extractArchiveTyped(dxvk4, exdir, nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" or extracted2:sub(1, 7) == "#Error:" or extracted3:sub(1, 7) == "#Error:" or extracted4:sub(1, 7) == "#Error:" then
+            msgbox_error("Patch 1 result: "..extracted.."\nPatch 2 result: "..extracted2, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+			deleteFile(dxvk2)
+			deleteFile(dxvk3)
+			deleteFile(dxvk4)
+            writeFile(marker, "ok")
+        end
+    end
+end
+mkdir(pathJoin(exdir, "bin\\steam_settings"))
+writeFile(pathJoin(exdir, "bin\\steam_settings\\configs.user.ini"), string.format([==[
+[user::general]
+account_name=%s
+ip_country=GB]==], usern))
+writeFile(pathJoin(exdir, "csgo\\cfg\\listenserver.cfg"), [==[
+sv_pure 0
+sv_lan 1
+]==])
+mkdir("N:\\RPF\\AppData10\\gc")
+if not fileExists("N:\\RPF\\AppData10\\gc\\init") then
+	local filesToCopy = {"inventory.txt", "price_sheet.txt", "unusual_loot_lists.txt"}
+	for _, v in pairs(filesToCopy) do
+		local pth = pathJoin(pathJoin(exdir, "csgo_gc"), v)
+		copyFile(pth, pathJoin("N:\\RPF\\AppData10\\gc", v), true)
+	end
+	writeFile("N:\\RPF\\AppData10\\gc\\init", "good")
+end
+setEnv("CSGO_GC_DATA_DIR", "N:\\RPF\\AppData10\\gc")
+-- point the in-process GC at the local relay (the launcher maps
+-- 127.0.0.1:27900 through the tunnel). shipped configs have it disabled
+-- or lack the block, so flip it on here at install time. best-effort:
+-- the game still launches untouched when anything goes wrong.
+do
+    local gcCfg = pathJoin(pathJoin(exdir, "csgo_gc"), "config.txt")
+    if fileExists(gcCfg) then
+        local ok, content = pcall(readFile, gcCfg)
+        if ok and content then
+            local patched = content
+            local gsAt = content:find('"gc_server"', 1, true)
+            if gsAt then
+                local head = content:sub(1, gsAt - 1)
+                local tail = content:sub(gsAt)
+                local tail2, n = tail:gsub('("enabled"%s+")0(")', '%11%2', 1)
+                if n > 0 then patched = head .. tail2 end
+            else
+                patched = content .. '\n"gc_server"\n{\n\t"enabled"\t"1"\n\t"url"\t"http://127.0.0.1:27900"\n\t"timeout"\t"3"\n}\n'
+            end
+            if patched ~= content then
+                writeFile(gcCfg, patched)
+                print_line("GC relay enabled (csgo_gc/config.txt).")
+            end
+        end
+    end
+end
+pExec(pathJoin(exdir, "csgo.exe"), "-steam", exdir, false)
+'''
+
+[[games]]
+title = "BattleBlock Theater"
+repo = "OIvZ13u6"
+script_inline = '''
+local exdir = extractGame(nil)
+writeFile(pathJoin(exdir, "steam_settings\\config.user.ini"), string.format([==[
+[user::general]
+account_name=%s
+ip_country=GB]==], usern))
+pExec(pathJoin(exdir, "BattleBlockTheater.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Grand Theft Auto: San Andreas"
+repo = "haXCfPjB"
+script_inline = '''
+local exdir = extractGame(nil)
+local gtaDir = pathJoin(exdir, "GTA San Andreas")
+
+if not dirExists(gtaDir) then
+    print_line("Not installed, installing")
+    local rzDir = pathJoin(exdir, "GTASA.rz")
+    pExec(pathJoin(exdir, "rz.exe"), ("x -o %s -r -y \"%s\" *"):format(exdir, rzDir), exdir, true)
+end
+
+pExec(pathJoin(exdir, "GTA San Andreas\\gta_sa.exe"), "", gtaDir, false)
+'''
+
+[[games]]
+title = "Geometry Dash"
+repo = "xpTsjNPZ"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "GeometryDash.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Just Cause 2"
+repo = "7xZFy3nR"
+script_inline = '''
+local exdir = extractGame(nil)
+local arcFiles = pathJoin(exdir, "archives_win32")
+
+if not fileExists(pathJoin(arcFiles, "pc0.tab")) then
+    print_line("Not installed, installing")
+    local filesToInstall = {"pc0.tar.zst", "pc1.tar.zst", "pc2.tar.zst", "pc3.tar.zst"}
+
+    for i, v in pairs(filesToInstall) do
+        print_line(("Processing %s"):format(v))
+        pExec(pathJoin(exdir, "JC2Repack.exe"), ("\"%s\" -o \"%s\" -v"):format(pathJoin(arcFiles, v), arcFiles), exdir, true)
+    end
+end
+local dxgiMarker = pathJoin(exdir, ".dxgipatch")
+if not fileExists(dxgiMarker) then
+	print_line("Installing process memory patch...")
+	local dxgi = downloadFileAs(
+		"https://github.com/hhkcu/bgh/releases/download/supplementary/dxgipatch.dll",
+		exdir,
+		"dxgi.dll"
+	)
+	if dxgi:sub(1,1) ~= "#" then
+		writeFile(dxgiMarker, "ok")
+	end
+end
+
+pExec(pathJoin(exdir, "JustCause2.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Minecraft: Story Mode (S1)"
+repo = "z1yBurB4"
+script_inline = '''
+local exdir = extractGame(nil)
+local marker = pathJoin(exdir, ".dxvk-applied")
+
+if not fileExists(marker) then
+    local dxvk = downloadFileAs(
+        "https://github.com/hhkcu/bgh/releases/download/supplementary/d3dx9_43.7z",
+        exdir,
+        "dxvk.7z"
+    )
+
+    if dxvk:sub(1, 7) == "#Error:" then
+        msgbox_error(dxvk .. "\nThe game might still run depending on which station you are using, but be warned.", "Patch Download Failed")
+    else
+        local extracted = extractArchiveTyped(dxvk, exdir, nil, "7z")
+
+        if extracted:sub(1, 7) == "#Error:" then
+            msgbox_error(extracted, "Patch Extract Failed")
+        else
+            deleteFile(dxvk)
+            writeFile(marker, "ok")
+        end
+    end
+end
+
+pExec(pathJoin(exdir, "GameApp.exe"), "", exdir, false)
+'''
+
+[[games]]
+title = "Among Us"
+repo = "WA1yAkeh"
+script_inline = '''
+local exdir = extractGame(nil)
+pExec(pathJoin(exdir, "Among Us.exe"), "", exdir, false)
+'''
