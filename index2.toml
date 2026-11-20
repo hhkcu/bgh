@@ -100,7 +100,7 @@ pExec(pathJoin(exdir, "hollow_knight.exe"), "", exdir, false)
 
 [[games]]
 title = "People Playground"
-repo = "r7DVbwYa"
+repo = "Vg34KtI4"
 script_inline = '''
 local exdir = extractGame(nil)
 pExec(pathJoin(exdir, "People Playground.exe"), "", exdir, false)
