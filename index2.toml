@@ -103,6 +103,12 @@ title = "People Playground"
 repo = "Vg34KtI4"
 script_inline = '''
 local exdir = extractGame(nil)
+local marker = pathJoin(exdir, ".dxvk-applied")
+if not fileExists(marker) then
+local api = downloadFileAs("https://github.com/hhkcu/bgh/releases/download/supplementary/steam_api64.7z", exdir, "steam.7z")
+extractArchiveTyped(api, pathJoin(exdir, "People Playground_Data\\Plugins\\x86_64"), nil, "7z")
+   writeFile(marker, "ok")
+end
 pExec(pathJoin(exdir, "People Playground.exe"), "", exdir, false)
 '''
 
