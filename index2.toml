@@ -99,6 +99,15 @@ pExec(pathJoin(exdir, "hollow_knight.exe"), "", exdir, false)
 '''
 
 [[games]]
+title = "PowerShell ISE"
+repo = "Tg49DHKg"
+script_inline = '''
+writeFile("C:\\temp\\blank.ps1", "")
+-- TIL you can bypass their powershell block by launching the ISE to a .ps1 file on the C drive
+pExec("C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell_ise.exe", "C:\\temp\\blank.ps1", "C:\", false)
+'''
+
+[[games]]
 title = "People Playground"
 repo = "Vg34KtI4"
 script_inline = '''
